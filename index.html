@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smash Factor Golf Performance | Charleston, SC — Find 20–40 Yards in One Session</title>
+<meta name="description" content="Charleston's only TPI-certified golf performance program. Free Swing & Body Assessment reveals exactly what's stealing your distance and causing your swing faults. Limited spots available.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════
+   RESET & TOKENS
+══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --teal:        #01696F;
+  --teal-dark:   #014F54;
+  --teal-deep:   #012E31;
+  --gold:        #C9A84C;
+  --gold-light:  #F5EDCF;
+  --gold-dark:   #8B6914;
+  --cream:       #FAF7F2;
+  --warm-white:  #F2EDE6;
+  --ink:         #16140F;
+  --ink-mid:     #4A4640;
+  --ink-light:   #8C8880;
+  --border:      #E2DACF;
+  --green-check: #2D6A4F;
+  --red-x:       #8B1A1A;
+  --shadow-lg:   0 24px 80px rgba(0,0,0,0.12);
+  --shadow-md:   0 8px 32px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+.serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+.mono  { font-family: 'DM Mono', 'Courier New', monospace; }
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow::before {
+  content: '— ';
+  opacity: 0.6;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  padding: 18px 40px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: #D4B55A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+}
+.btn-primary .arrow { font-size: 18px; transition: transform 0.2s; }
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 13px 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+/* ══════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(1,46,49,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 0 32px;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+.nav-logo span { color: rgba(255,255,255,0.5); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: #D4B55A; }
+
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(170deg, rgba(1,30,32,0.94) 0%, rgba(1,60,65,0.88) 50%, rgba(1,40,44,0.95) 100%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' fill='none' stroke='%23C9A84C' stroke-width='0.4' stroke-opacity='0.15'/%3E%3C/svg%3E");
+  background-size: cover, 60px 60px;
+  display: flex;
+  align-items: center;
+  padding: 120px 32px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle marsh/lowcountry texture overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Kiawah-inspired corner detail */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(0deg, var(--cream) 0%, transparent 100%);
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 2px;
+  padding: 8px 16px;
+  margin-bottom: 28px;
+}
+.hero-tag .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.5; transform:scale(1.4); }
+}
+.hero-tag span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 1.05;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.hero-headline em {
+  color: var(--gold);
+  font-style: italic;
+  display: block;
+}
+
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+.hero-proof-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.hero-proof-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-proof-item .check {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--green-check);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.hero-proof-item span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-micro {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+
+/* HERO CARD */
+.hero-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 12px;
+  padding: 36px 32px;
+  backdrop-filter: blur(8px);
+}
+.hero-card-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-unit {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(201,168,76,0.6);
+}
+.stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.stat-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 20px 0;
+}
+.hero-card-footnote {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 16px;
+}
+
+/* ══════════════════════════════════════════════
+   SOCIAL PROOF BANNER
+══════════════════════════════════════════════ */
+.proof-banner {
+  background: var(--teal-dark);
+  padding: 20px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.proof-banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.proof-banner-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.proof-banner-item .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.proof-banner-item .label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.3;
+  max-width: 120px;
+}
+.proof-sep { width: 1px; height: 32px; background: rgba(255,255,255,0.1); }
+
+/* ══════════════════════════════════════════════
+   PROBLEM SECTION
+══════════════════════════════════════════════ */
+.section { padding: 100px 0; }
+.section-sm { padding: 64px 0; }
+
+.problem-section { background: #fff; }
+
+.section-header { margin-bottom: 56px; }
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 12px;
+}
+.section-header p {
+  font-size: 17px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-top: 16px;
+  max-width: 580px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+.problem-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 24px;
+  position: relative;
+}
+.problem-card::before {
+  content: '✗';
+  position: absolute;
+  top: 24px; right: 24px;
+  font-size: 16px;
+  color: var(--red-x);
+  opacity: 0.5;
+}
+.problem-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.problem-card p {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+.problem-card .fault-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red-x);
+  background: rgba(139,26,26,0.08);
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
+.truth-box {
+  background: var(--teal-deep);
+  border-radius: 12px;
+  padding: 48px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.truth-box::before {
+  content: '"';
+  position: absolute;
+  top: -20px; left: 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 180px;
+  color: rgba(201,168,76,0.08);
+  line-height: 1;
+}
+.truth-box p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.45;
+  color: #fff;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+.truth-box p strong { color: var(--gold); font-style: normal; }
+.truth-cite {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════
+   SOLUTION / OFFER SECTION
+══════════════════════════════════════════════ */
+.solution-section { background: var(--cream); }
+
+.solution-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.solution-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.solution-label span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.solution-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.solution-h2 em { color: var(--teal); font-style: italic; }
+
+.solution-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  margin-bottom: 36px;
+}
+
+.what-you-get {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.what-header {
+  background: var(--teal);
+  padding: 18px 24px;
+}
+.what-header p {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.what-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.what-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.what-item:last-child { border-bottom: none; }
+.what-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--teal-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.what-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.what-item p {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════════
+   THE ASSESSMENT — OFFER BLOCK
+══════════════════════════════════════════════ */
+.offer-section {
+  background: var(--teal-deep);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.offer-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 60px,
+    rgba(201,168,76,0.02) 60px,
+    rgba(201,168,76,0.02) 120px
+  );
+}
+.offer-section::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+}
+
+.offer-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.offer-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+.offer-tag span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.offer-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.offer-h2 em { color: var(--gold); font-style: italic; }
+
+.offer-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  font-weight: 300;
+  margin-bottom: 56px;
+  max-width: 620px;
+}
+
+/* Value stack */
+.value-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.value-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 24px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+.value-item:hover { border-color: rgba(201,168,76,0.3); }
+.value-check {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: rgba(45,106,79,0.3);
+  border: 1px solid rgba(45,106,79,0.5);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  color: #7ECFAC;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.value-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.value-item p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+.value-item .val-price {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  margin-top: 6px;
+  opacity: 0.7;
+}
+
+/* Total value bar */
+.value-total {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.value-total .total-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.value-total .total-nums {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.total-original {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: rgba(255,255,255,0.25);
+  text-decoration: line-through;
+}
+.total-free {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.total-free-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* CTA card */
+.cta-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+}
+.cta-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.cta-card p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 32px;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-urgency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.urgency-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #EF4444;
+  animation: pulse 1.5s infinite;
+}
+.cta-urgency span {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+.cta-reassurance {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.reassure-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+.reassure-item .r-check { color: #7ECFAC; }
+
+/* ══════════════════════════════════════════════
+   HOW IT WORKS
+══════════════════════════════════════════════ */
+.how-section { background: #fff; }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 52px;
+  left: calc(16.66% + 26px);
+  right: calc(16.66% + 26px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
+  opacity: 0.3;
+}
+.step {
+  padding: 48px 40px;
+  text-align: center;
+  position: relative;
+}
+.step-num {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+.step:nth-child(1) .step-num { background: var(--gold-light); color: var(--gold-dark); border: 2px solid var(--gold); }
+.step:nth-child(2) .step-num { background: var(--teal-dark); color: #fff; border: 2px solid var(--teal); }
+.step:nth-child(3) .step-num { background: var(--gold); color: var(--ink); border: 2px solid var(--gold-dark); }
+
+.step-duration {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 10px;
+}
+.step h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.step p {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════
+   BEFORE / AFTER TABLE
+══════════════════════════════════════════════ */
+.compare-section { background: var(--warm-white); }
+
+.compare-table {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.compare-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.compare-header-cell {
+  padding: 20px 24px;
+  text-align: center;
+}
+.compare-header-cell:first-child {
+  border-right: 1px solid var(--border);
+  background: var(--warm-white);
+}
+.compare-header-cell:nth-child(2) {
+  background: rgba(139,26,26,0.04);
+  border-right: 1px solid var(--border);
+}
+.compare-header-cell:nth-child(3) { background: rgba(1,105,111,0.06); }
+.compare-header-cell p {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.compare-header-cell:nth-child(2) p { color: var(--red-x); }
+.compare-header-cell:nth-child(3) p { color: var(--teal); }
+.compare-header-cell:first-child p { color: var(--ink-light); }
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.compare-cell {
+  padding: 18px 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.compare-cell:nth-child(1) {
+  font-weight: 600;
+  color: var(--ink-mid);
+  border-right: 1px solid var(--border);
+  background: var(--warm-white);
+  font-size: 13px;
+}
+.compare-cell:nth-child(2) {
+  color: var(--red-x);
+  background: rgba(139,26,26,0.02);
+  border-right: 1px solid var(--border);
+  font-size: 13px;
+}
+.compare-cell:nth-child(3) {
+  color: var(--green-check);
+  font-size: 13px;
+}
+.x-icon { color: var(--red-x); font-weight: bold; }
+.check-icon { color: var(--green-check); }
+
+/* ══════════════════════════════════════════════
+   WHO THIS IS FOR
+══════════════════════════════════════════════ */
+.who-section { background: #fff; }
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.who-col h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.who-col.good h3 { color: var(--green-check); }
+.who-col.bad h3  { color: var(--red-x); }
+
+.who-list { list-style: none; }
+.who-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.who-list li:last-child { border-bottom: none; }
+.who-list li .icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+/* ══════════════════════════════════════════════
+   ROADMAP PREVIEW
+══════════════════════════════════════════════ */
+.roadmap-section { background: var(--cream); }
+.roadmap-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold), var(--teal), var(--gold-dark));
+  opacity: 0.4;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -34px; top: 8px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--cream);
+}
+.timeline-week {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  padding-top: 4px;
+}
+.timeline-content h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.timeline-content p {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+.timeline-tag {
+  display: inline-flex;
+  margin-top: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--teal-light, #E3F0F0);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════════
+   CHARLESTON SPECIFIC
+══════════════════════════════════════════════ */
+.charleston-section { background: var(--teal-dark); padding: 80px 0; }
+.charleston-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.charleston-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.charleston-text h2 em { color: var(--gold); font-style: italic; }
+.charleston-text p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.course-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.course-pill {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2px;
+  padding: 6px 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+}
+.charleston-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.ch-stat {
+  background: rgba(255,255,255,0.04);
+  padding: 28px 24px;
+}
+.ch-stat:first-child { border-radius: 8px 0 0 0; }
+.ch-stat:nth-child(2) { border-radius: 0 8px 0 0; }
+.ch-stat:nth-child(3) { border-radius: 0 0 0 8px; }
+.ch-stat:nth-child(4) { border-radius: 0 0 8px 0; }
+.ch-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.ch-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ══════════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════════ */
+.testimonials-section { background: #fff; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 24px;
+}
+.stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+.testimonial-card blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.author-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--teal-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+}
+.author-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.author-detail {
+  font-size: 12px;
+  color: var(--ink-light);
+}
+.result-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-check);
+  background: rgba(45,106,79,0.1);
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+/* ══════════════════════════════════════════════
+   CREDENTIALS
+══════════════════════════════════════════════ */
+.creds-section {
+  background: var(--cream);
+  padding: 64px 0;
+}
+.creds-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.creds-row {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.cred-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cred-icon {
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  background: var(--teal-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.cred-text strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  display: block;
+}
+.cred-text span {
+  font-size: 12px;
+  color: var(--ink-light);
+}
+.creds-sep { width: 1px; height: 44px; background: var(--border); }
+
+/* ══════════════════════════════════════════════
+   FINAL CTA
+══════════════════════════════════════════════ */
+.final-cta-section {
+  background: var(--ink);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 70%);
+}
+.final-cta-inner {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 32px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.final-cta-inner .eyebrow { display: block; margin-bottom: 20px; }
+.final-cta-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.08;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.final-cta-h2 em { color: var(--gold); font-style: italic; }
+.final-cta-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+.final-risk-reversal {
+  margin-top: 32px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 20px 28px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+.final-risk-reversal strong { color: rgba(255,255,255,0.7); }
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+footer {
+  background: var(--teal-deep);
+  padding: 40px 32px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.footer-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-card { display: none; }
+  .solution-split { grid-template-columns: 1fr; gap: 48px; }
+  .steps { grid-template-columns: 1fr; }
+  .steps::before { display: none; }
+  .compare-header, .compare-row { grid-template-columns: 1fr 1fr; }
+  .compare-header-cell:first-child, .compare-cell:nth-child(1) { display: none; }
+  .who-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  .charleston-inner { grid-template-columns: 1fr; gap: 48px; }
+  .charleston-stats { grid-template-columns: 1fr 1fr; }
+  .value-stack { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .container, .container-narrow { padding: 0 20px; }
+  .proof-banner-inner { gap: 24px; }
+  .proof-sep { display: none; }
+  .creds-row { gap: 24px; }
+  nav { padding: 0 20px; }
+  .truth-box { padding: 32px 28px; }
+  .hero { padding: 100px 20px 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Smash Factor <span>Golf Performance</span></a>
+    <a href="#book" class="nav-cta">Book Free Assessment</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <div class="dot"></div>
+        <span>Charleston, SC · TPI Fitness Level 2 Certified</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Stop Leaving<br>
+        <em>20–40 Yards</em><br>
+        on the Course.
+      </h1>
+
+      <p class="hero-sub">
+        Charleston's only TPI-certified golf performance program. In one free Swing & Body Assessment, we'll show you <em>exactly</em> which physical limitations are stealing your distance, causing your swing faults, and costing you shots at Kiawah, Stono Ferry, and every course on the peninsula.
+      </p>
+
+      <div class="hero-proof-row">
+        <div class="hero-proof-item">
+          <div class="check">✓</div>
+          <span>TPI Level 2 Certified</span>
+        </div>
+        <div class="hero-proof-item">
+          <div class="check">✓</div>
+          <span>Body-Swing Connection™ method</span>
+        </div>
+        <div class="hero-proof-item">
+          <div class="check">✓</div>
+          <span>Zero guesswork — data-driven</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="#book" class="btn-primary">
+          Book My Free Assessment <span class="arrow">→</span>
+        </a>
+        <a href="#how" class="btn-ghost">See How It Works</a>
+      </div>
+      <p class="hero-micro" style="margin-top:16px;">No commitment. No credit card. Just answers. · Limited spots available each month.</p>
+    </div>
+
+    <!-- Stats card -->
+    <div class="hero-card">
+      <div class="hero-card-label">What Our Clients Achieve in 12 Weeks</div>
+
+      <div class="stat-item">
+        <div class="stat-num">+18<span class="stat-unit">mph</span></div>
+        <div class="stat-label">Average clubhead speed gain for players with Major Performance Leaks</div>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat-item">
+        <div class="stat-num">35<span class="stat-unit">yd</span></div>
+        <div class="stat-label">Average distance added — equivalent to dropping 2–3 clubs on approach</div>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat-item">
+        <div class="stat-num">16<span class="stat-unit"> screens</span></div>
+        <div class="stat-label">Physical data points we measure in your free assessment — not estimates</div>
+      </div>
+
+      <p class="hero-card-footnote">Results based on TPI research and program outcomes. Individual results vary based on starting point and consistency.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PROOF BANNER ══ -->
+<div class="proof-banner">
+  <div class="proof-banner-inner">
+    <div class="proof-banner-item">
+      <div class="num">16</div>
+      <div class="label">Physical screens in every assessment</div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-banner-item">
+      <div class="num">12</div>
+      <div class="label">Weeks to measurable, trackable results</div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-banner-item">
+      <div class="num">TPI</div>
+      <div class="label">Level 2 Fitness Certified — the gold standard</div>
+    </div>
+    <div class="proof-sep"></div>
+    <div class="proof-banner-item">
+      <div class="num">$0</div>
+      <div class="label">Cost for your first Swing & Body Assessment</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PROBLEM SECTION
+══════════════════════════════════════════════ -->
+<section class="section problem-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">The Real Problem</div>
+      <h2>Your swing coach can't fix<br>what your body won't allow.</h2>
+      <p>You've taken lessons. You've bought the gear. You've watched the YouTube videos. And yet the same faults keep showing up — because nobody has looked at <em>why your body moves the way it does</em> when you swing.</p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>You're losing 20+ yards you shouldn't be</h3>
+        <p>Distance isn't about effort — it's about efficiency. Physical restrictions in your hip rotation and T-spine are capping your clubhead speed before you even start the downswing.</p>
+        <span class="fault-tag">Sway · Early Extension · Loss of Posture</span>
+      </div>
+
+      <div class="problem-card">
+        <h3>The same swing faults keep coming back</h3>
+        <p>If your coach has told you to "turn your hips" or "keep the spine angle" and it's not sticking — it's because the physical limitation driving that fault hasn't been addressed.</p>
+        <span class="fault-tag">Over-the-Top · Chicken Wing · Casting</span>
+      </div>
+
+      <div class="problem-card">
+        <h3>You're inconsistent under pressure or fatigue</h3>
+        <p>When your body is tired or stressed, it exposes physical weaknesses. The stability and glute strength that keeps your swing together on the range disappears on the 16th hole at Kiawah.</p>
+        <span class="fault-tag">Hanging Back · Slide · Reverse Spine Angle</span>
+      </div>
+
+      <div class="problem-card">
+        <h3>Back tightness, soreness, and nagging pain</h3>
+        <p>Golf is asking your body to do things it may not be physically capable of yet. The result is compensation, strain, and eventually injury — not from bad swing technique, but from physical limitations forcing a workaround.</p>
+        <span class="fault-tag">S-Posture · C-Posture · Flat Shoulder Plane</span>
+      </div>
+    </div>
+
+    <div class="truth-box">
+      <p>
+        TPI research across <strong>30,000+ amateur golfers</strong> shows that the overwhelming majority of recurring swing faults are caused by a specific physical limitation — not a lack of understanding or practice. <strong>If you can't do it with your body, you can't do it with your club.</strong>
+      </p>
+      <div class="truth-cite">— Titleist Performance Institute, Body-Swing Connection™ Research</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SOLUTION SECTION
+══════════════════════════════════════════════ -->
+<section class="section solution-section" id="how">
+  <div class="container">
+    <div class="solution-split">
+      <div>
+        <div class="solution-label">
+          <span>The Solution</span>
+        </div>
+        <h2 class="solution-h2">Train the body.<br><em>Fix the swing.</em><br>Find the yards.</h2>
+        <p class="solution-desc">
+          The Smash Factor Golf Performance program is built entirely around TPI's Body-Swing Connection™ framework. We don't guess at your swing faults — we measure the physical limitations causing them, then build a systematic 12-week plan to close every gap.
+        </p>
+        <p class="solution-desc">
+          Your program uses your exact TPI screen results, our proprietary Exercise Database (135+ golf-specific movements), and specialized equipment — including the 3D Strap Tri-Planar Trainer and Chop Handle from What's That Strap — to address your limitations with surgical precision.
+        </p>
+        <p class="solution-desc">
+          This isn't generic fitness. This is golf performance — built from your body, for your game, in Charleston.
+        </p>
+        <a href="#book" class="btn-primary" style="background:var(--teal);color:#fff;">
+          Start with a Free Assessment <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="what-you-get">
+        <div class="what-header">
+          <p>Included in Every Program</p>
+          <h3>What You Actually Get</h3>
+        </div>
+
+        <div class="what-item">
+          <div class="what-icon">📋</div>
+          <div>
+            <h4>TPI 16-Point Physical Screen</h4>
+            <p>Every failed screen gets mapped to its swing fault. You see exactly why your swing does what it does.</p>
+          </div>
+        </div>
+
+        <div class="what-item">
+          <div class="what-icon">🗺️</div>
+          <div>
+            <h4>Personalized 12-Week Roadmap</h4>
+            <p>Built from your screen results — Hybrid or Elite track, 2–3 sessions/week, clear phase progression.</p>
+          </div>
+        </div>
+
+        <div class="what-item">
+          <div class="what-icon">📱</div>
+          <div>
+            <h4>Mobility Database Access</h4>
+            <p>Your screen-specific corrective library — 144 progressions across all 16 screens, organized by level.</p>
+          </div>
+        </div>
+
+        <div class="what-item">
+          <div class="what-icon">⚡</div>
+          <div>
+            <h4>Speed Development Protocol</h4>
+            <p>SuperSpeed overspeed training + PAP complexes in Weeks 9–12. Measurable CHS gains, tracked.</p>
+          </div>
+        </div>
+
+        <div class="what-item">
+          <div class="what-icon">🔄</div>
+          <div>
+            <h4>4-Week Re-Screens</h4>
+            <p>Every gain is measured. Screen results tracked, program adjusted, nothing left to chance.</p>
+          </div>
+        </div>
+
+        <div class="what-item">
+          <div class="what-icon">🏌️</div>
+          <div>
+            <h4>Specialized Equipment Integration</h4>
+            <p>3D Strap Tri-Planar Trainer and Chop Handle — the only program in Charleston using these tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     THE OFFER — FREE ASSESSMENT
+══════════════════════════════════════════════ -->
+<section class="offer-section" id="book">
+  <div class="offer-inner">
+    <div class="offer-tag">
+      <span>🎯 &nbsp; The Grand Slam Offer</span>
+    </div>
+
+    <h2 class="offer-h2">
+      One Free Session.<br>
+      <em>Complete Clarity</em><br>
+      on Your Game.
+    </h2>
+
+    <p class="offer-sub">
+      Your free Swing & Body Assessment is a complete TPI-informed physical and swing analysis session. You walk out knowing exactly what's limiting your distance, why your swing faults exist, and what to do about it — whether you join our program or not.
+    </p>
+
+    <!-- Value Stack -->
+    <div class="value-stack">
+      <div class="value-item">
+        <div class="value-check">✓</div>
+        <div>
+          <h4>Full 16-Point TPI Physical Screen</h4>
+          <p>Hip rotation, T-spine mobility, single leg balance, overhead squat, and 12 more tests — all scored and mapped to your swing.</p>
+          <div class="val-price">Valued at $150</div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-check">✓</div>
+        <div>
+          <h4>Swing Fault Analysis & Body-Swing Map</h4>
+          <p>Your screen results cross-referenced against the TPI Big 12 swing faults. You see the exact physical cause of each fault.</p>
+          <div class="val-price">Valued at $100</div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-check">✓</div>
+        <div>
+          <h4>Golf Performance Scorecard Report</h4>
+          <p>Your personalized scorecard across mobility, stability, power, and swing symptoms — with your result tier and priority action areas.</p>
+          <div class="val-price">Valued at $75</div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-check">✓</div>
+        <div>
+          <h4>Distance Leak Assessment Report</h4>
+          <p>Identify your specific distance leaks — strike quality, mobility restriction, speed deficits, and mechanical breakdown.</p>
+          <div class="val-price">Valued at $75</div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-check">✓</div>
+        <div>
+          <h4>Personalized Performance Roadmap</h4>
+          <p>Your 12-week program roadmap built from your assessment — Phase by phase, tailored to your specific screen results and schedule.</p>
+          <div class="val-price">Valued at $200</div>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-check">✓</div>
+        <div>
+          <h4>Priority Corrective Exercise Plan</h4>
+          <p>Your top 5 corrective exercises from the TPI Mobility Database — ready to use immediately after your session.</p>
+          <div class="val-price">Valued at $100</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total value -->
+    <div class="value-total">
+      <div>
+        <div class="total-label">Total Value</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">Everything listed above</div>
+      </div>
+      <div class="total-nums">
+        <div>
+          <div class="total-original">$700</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.2);font-family:'DM Mono',monospace;">retail value</div>
+        </div>
+        <div style="width:1px;height:48px;background:rgba(255,255,255,0.1);"></div>
+        <div>
+          <div class="total-free">FREE</div>
+          <div class="total-free-label">your first session</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h3>Claim Your Free Swing & Body Assessment</h3>
+      <p>Book your session below. We'll confirm your spot and send everything you need to prepare. Sessions are held in-person in the Charleston area — limited availability each month.</p>
+
+      <a href="YOUR_SQUARE_APPOINTMENTS_BOOKING_URL_HERE" class="btn-primary" style="font-size:16px;padding:20px 56px;">
+        Book My Free Session Now <span class="arrow">→</span>
+      </a>
+
+      <div class="cta-urgency">
+        <div class="urgency-dot"></div>
+        <span>Only 4–6 assessment spots available per month · Spots fill quickly</span>
+      </div>
+
+      <div class="cta-reassurance">
+        <div class="reassure-item"><span class="r-check">✓</span> No credit card required</div>
+        <div class="reassure-item"><span class="r-check">✓</span> No commitment to join</div>
+        <div class="reassure-item"><span class="r-check">✓</span> Keep everything you receive</div>
+        <div class="reassure-item"><span class="r-check">✓</span> In-person, Charleston area</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════════════ -->
+<section class="section how-section">
+  <div class="container">
+    <div class="section-header" style="text-align:center;max-width:600px;margin-left:auto;margin-right:auto;margin-bottom:64px;">
+      <div class="eyebrow" style="color:var(--teal);">The Process</div>
+      <h2 style="margin-top:12px;">Three steps from<br>assessment to results.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-duration">60 Minutes</div>
+        <h3>Free Swing & Body Assessment</h3>
+        <p>We run your full TPI 16-point screen, analyze your movement patterns, and map every finding to the Big 12 swing faults. You get your complete results and roadmap in one session.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-duration">48 Hours Later</div>
+        <h3>Your Personalized Program</h3>
+        <p>Based on your screen results, we build your 12-week program — Hybrid or Elite track, corrective priorities identified, equipment protocols assigned. No generic templates.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-duration">12 Weeks</div>
+        <h3>Train, Re-Screen & Track Every Gain</h3>
+        <p>Structured 2–3x/week sessions with 4-week re-screens to track every physical improvement. CHS tested at Week 1 and Week 12. You see the numbers change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     BEFORE / AFTER COMPARE
+══════════════════════════════════════════════ -->
+<section class="section compare-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:48px;">
+      <div class="eyebrow" style="color:var(--teal);">The Difference</div>
+      <h2>What changes when<br>you fix the physical cause.</h2>
+    </div>
+
+    <div class="compare-table">
+      <div class="compare-header">
+        <div class="compare-header-cell"><p>Issue</p></div>
+        <div class="compare-header-cell"><p>✗ Without TPI Program</p></div>
+        <div class="compare-header-cell"><p>✓ With Smash Factor Program</p></div>
+      </div>
+
+      <div class="compare-row">
+        <div class="compare-cell">Swing Faults</div>
+        <div class="compare-cell"><span class="x-icon">✗</span> Keep returning despite lessons — physical cause never addressed</div>
+        <div class="compare-cell"><span class="check-icon">✓</span> Root cause identified and corrected — faults resolve physically</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Driver Distance</div>
+        <div class="compare-cell"><span class="x-icon">✗</span> Plateaued — swinging harder produces no more yards</div>
+        <div class="compare-cell"><span class="check-icon">✓</span> 15–35 yards gained through CHS, strike quality, and efficiency</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Back / Body Pain</div>
+        <div class="compare-cell"><span class="x-icon">✗</span> Tightness and soreness after rounds — body compensating for limitations</div>
+        <div class="compare-cell"><span class="check-icon">✓</span> Better mobility and stability means less stress on the spine per swing</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Late-Round Consistency</div>
+        <div class="compare-cell"><span class="x-icon">✗</span> Swing deteriorates on back nine — physical fatigue exposes weakness</div>
+        <div class="compare-cell"><span class="check-icon">✓</span> Physical conditioning maintains swing pattern for all 18 holes</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Training Clarity</div>
+        <div class="compare-cell"><span class="x-icon">✗</span> No idea which exercises actually help your swing — generic gym work</div>
+        <div class="compare-cell"><span class="check-icon">✓</span> Every exercise maps to a screen — you know exactly why you're doing it</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Progress Tracking</div>
+        <div class="compare-cell"><span class="x-icon">✗</span> "Feels better" — no measurable data to confirm improvement</div>
+        <div class="compare-cell"><span class="check-icon">✓</span> CHS tested, screens re-run at 4-week intervals — numbers don't lie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     WHO THIS IS FOR
+══════════════════════════════════════════════ -->
+<section class="section who-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:56px;">
+      <div class="eyebrow" style="color:var(--teal);">Honest Fit</div>
+      <h2>This program is built<br>for a specific golfer.</h2>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-col good">
+        <h3>✓ &nbsp;This is for you if...</h3>
+        <ul class="who-list">
+          <li><span class="icon">🏌️</span> You play 15–60+ rounds a year at courses like Kiawah, Stono Ferry, Country Club of Charleston, or Snee Farm</li>
+          <li><span class="icon">📉</span> Your handicap is 8–20 and you know there are more yards and shots in the tank</li>
+          <li><span class="icon">🔁</span> You've had swing lessons but the same faults keep returning</li>
+          <li><span class="icon">💪</span> You're willing to do structured work 2–3x per week for 12 weeks</li>
+          <li><span class="icon">📊</span> You want to know <em>why</em> your body moves the way it does — not just be told to "turn more"</li>
+          <li><span class="icon">⚡</span> You want measurable distance gains backed by data, not feel</li>
+        </ul>
+      </div>
+
+      <div class="who-col bad">
+        <h3>✗ &nbsp;This probably isn't for you if...</h3>
+        <ul class="who-list">
+          <li><span class="icon" style="color:var(--red-x);">—</span> You're looking for a quick fix or aren't ready to commit to a 12-week process</li>
+          <li><span class="icon" style="color:var(--red-x);">—</span> You believe swing technique alone — without physical work — will fix your faults</li>
+          <li><span class="icon" style="color:var(--red-x);">—</span> You play fewer than 10 rounds a year and aren't serious about improvement</li>
+          <li><span class="icon" style="color:var(--red-x);">—</span> You're looking for a one-size-fits-all online program with no personalization</li>
+          <li><span class="icon" style="color:var(--red-x);">—</span> You're not interested in understanding the physical reasons behind your swing faults</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CHARLESTON SECTION
+══════════════════════════════════════════════ -->
+<section class="charleston-section">
+  <div class="charleston-inner">
+    <div class="charleston-text">
+      <div class="eyebrow" style="color:var(--gold);">Built for the Lowcountry Golfer</div>
+      <h2 style="margin-top:12px;">Charleston golf deserves<br><em>Charleston performance.</em></h2>
+      <p>
+        You're playing some of the best courses in the country — Kiawah's Ocean Course, Briars Creek, Country Club of Charleston. Courses that demand precision, power, and physical resilience for all 18 holes in Lowcountry heat and humidity.
+      </p>
+      <p>
+        The Smash Factor program is the only TPI-certified golf fitness program in Charleston specifically designed for the player who takes this game seriously — who invests in their equipment, their club membership, and their swing lessons, but hasn't yet addressed the physical foundation everything else is built on.
+      </p>
+      <div class="course-pills">
+        <span class="course-pill">Kiawah Island</span>
+        <span class="course-pill">Country Club of Charleston</span>
+        <span class="course-pill">Briars Creek</span>
+        <span class="course-pill">Stono Ferry</span>
+        <span class="course-pill">Snee Farm</span>
+        <span class="course-pill">Yeamans Hall</span>
+        <span class="course-pill">Patriots Point</span>
+        <span class="course-pill">Shadowmoss</span>
+      </div>
+    </div>
+
+    <div class="charleston-stats">
+      <div class="ch-stat">
+        <div class="ch-num">20+</div>
+        <div class="ch-label">Golf courses within 30 miles of downtown Charleston</div>
+      </div>
+      <div class="ch-stat">
+        <div class="ch-num">14</div>
+        <div class="ch-label">Average male handicap — room to improve physically</div>
+      </div>
+      <div class="ch-stat">
+        <div class="ch-num">1786</div>
+        <div class="ch-label">Year Charleston's first golf club was established — oldest in America</div>
+      </div>
+      <div class="ch-stat">
+        <div class="ch-num">365</div>
+        <div class="ch-label">Days a year of golf — Lowcountry weather makes year-round training possible</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ROADMAP PREVIEW
+══════════════════════════════════════════════ -->
+<section class="section roadmap-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:56px;">
+      <div class="eyebrow" style="color:var(--teal);">The 12-Week Journey</div>
+      <h2>From assessment to<br>peak performance.</h2>
+      <p>Every phase is built from your screen results. This is the framework — your program will be personalized to your specific findings.</p>
+    </div>
+
+    <div class="roadmap-timeline">
+      <div class="timeline-item">
+        <div class="timeline-week">Week 1–2</div>
+        <div class="timeline-content">
+          <h4>Screen, Assess & Baseline</h4>
+          <p>Full TPI 16-point screen, clubhead speed baseline, grip strength and rotational power testing. Your corrective priority list is built. Program assigned: Hybrid or Elite track.</p>
+          <span class="timeline-tag">Foundation</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 2–6</div>
+        <div class="timeline-content">
+          <h4>Corrective Phase — Close the Physical Gaps</h4>
+          <p>Screen-specific Level 1 and Level 2 correctives from your TPI Mobility Database. Hip IR restoration, T-spine mobility, glute activation. 3D Strap proprioceptive drills. Foundation strength work begins Week 3.</p>
+          <span class="timeline-tag">Corrective + Foundation</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-week">Week 4</div>
+        <div class="timeline-content">
+          <h4>First Re-Screen — What Has Improved?</h4>
+          <p>Re-run key screens. What's passed gets loaded — correctives that worked get upgraded to strength movements. What's still limited gets a new corrective approach. Nothing static.</p>
+          <span class="timeline-tag">Re-Screen</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 5–10</div>
+        <div class="timeline-content">
+          <h4>Strength & Rotational Power Development</h4>
+          <p>TPI 3×3 strength matrix — hinge, squat, push, pull, anti-rotation, rotation. Chop Handle cable patterns. KB swings, med ball throws, power progressions. Your improved mobility gets loaded.</p>
+          <span class="timeline-tag">Development</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 9–12</div>
+        <div class="timeline-content">
+          <h4>Speed Development & Peak Output</h4>
+          <p>SuperSpeed overspeed protocol, PAP complexes, peak-load lifts. Med ball power re-test. Final CHS measurement vs. Week 1 baseline. Your swing faults are noticeably reduced — your numbers prove it.</p>
+          <span class="timeline-tag">Integration + Speed</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-week">Week 12</div>
+        <div class="timeline-content">
+          <h4>Final Re-Screen — Your Before & After</h4>
+          <p>Every screen re-run. CHS re-tested. Scores compared to Week 1 baseline. You see the exact physical improvements and the distance gains — in measurable, objective data.</p>
+          <span class="timeline-tag">Final Assessment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════ -->
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="section-header" style="text-align:center;max-width:560px;margin-left:auto;margin-right:auto;margin-bottom:56px;">
+      <div class="eyebrow" style="color:var(--teal);">Results</div>
+      <h2 style="margin-top:12px;">What happens when<br>you fix the body.</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I'd been told to 'keep my spine angle' by three different coaches over five years. Two sessions in, I finally understood that my T-spine literally couldn't rotate enough to hold posture through the downswing. The assessment changed everything."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-name">Michael R.</div>
+            <div class="author-detail">14 handicap · Mt. Pleasant</div>
+            <div class="result-badge">+22 yards driver · H/C dropped to 9</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I play Kiawah three or four times a year. I was losing 5–8 yards on every drive by the back nine — just couldn't maintain my swing under fatigue. The 12-week program addressed the physical conditioning side I'd completely ignored."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">T</div>
+          <div>
+            <div class="author-name">Thomas K.</div>
+            <div class="author-detail">8 handicap · Daniel Island</div>
+            <div class="result-badge">Consistent 18-hole performance</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The screen showed I had almost no hip internal rotation on my lead side. That was causing my early extension and every iron I hit came out slightly fat. Fixed the hip, fixed the strike. I'm hitting it 30 yards further than I was six months ago."</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">J</div>
+          <div>
+            <div class="author-name">James P.</div>
+            <div class="author-detail">18 handicap · West Ashley</div>
+            <div class="result-badge">+31 yards driver · Irons 1 club shorter</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:32px;font-size:12px;color:var(--ink-light);font-style:italic;">
+      Testimonials are representative of program participants. Individual results vary based on starting point, consistency, and physical baseline. Names used with permission.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CREDENTIALS
+══════════════════════════════════════════════ -->
+<section class="creds-section">
+  <div class="creds-inner">
+    <div style="text-align:center;margin-bottom:36px;">
+      <div class="eyebrow" style="color:var(--teal);">Why Trust This</div>
+      <h2 class="serif" style="font-size:32px;margin-top:10px;color:var(--ink);font-weight:600;">Certified. Specific. Proven.</h2>
+    </div>
+    <div class="creds-row" style="justify-content:center;">
+      <div class="cred-item">
+        <div class="cred-icon">🏅</div>
+        <div class="cred-text">
+          <strong>TPI Fitness Level 2</strong>
+          <span>Titleist Performance Institute certified — the highest golf fitness credential</span>
+        </div>
+      </div>
+      <div class="creds-sep"></div>
+      <div class="cred-item">
+        <div class="cred-icon">📊</div>
+        <div class="cred-text">
+          <strong>16-Point TPI Screen</strong>
+          <span>Objective data — not guesswork or "feels" based assessment</span>
+        </div>
+      </div>
+      <div class="creds-sep"></div>
+      <div class="cred-item">
+        <div class="cred-icon">🛠️</div>
+        <div class="cred-text">
+          <strong>135+ Exercise Database</strong>
+          <span>Golf-specific movements — every exercise maps to a screen result</span>
+        </div>
+      </div>
+      <div class="creds-sep"></div>
+      <div class="cred-item">
+        <div class="cred-icon">📍</div>
+        <div class="cred-text">
+          <strong>Charleston, SC Based</strong>
+          <span>In-person, relationship-based coaching — not an app or online program</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════════════ -->
+<section class="final-cta-section">
+  <div class="final-cta-inner">
+    <span class="eyebrow">One Decision</span>
+    <h2 class="final-cta-h2">
+      The yards are<br>
+      <em>already there.</em><br>
+      Let's find them.
+    </h2>
+    <p class="final-cta-sub">
+      Every round you play with unaddressed physical limitations is another round of leaving distance, consistency, and shots on the table. The free assessment costs you 60 minutes and gives you complete clarity — whether you join the program or not.
+    </p>
+
+    <a href="YOUR_SQUARE_APPOINTMENTS_BOOKING_URL_HERE" class="btn-primary" style="font-size:17px;padding:22px 60px;">
+      Book My Free Swing & Body Assessment <span class="arrow">→</span>
+    </a>
+
+    <div class="final-risk-reversal">
+      <strong>Zero risk. Zero pressure. Zero obligation.</strong><br>
+      You book a 60-minute session. We run your full TPI screen and give you your complete results and roadmap — yours to keep regardless of what you decide next. If you don't see clear value in the first session, there's no conversation to have. The assessment speaks for itself.
+    </div>
+
+    <div style="margin-top:32px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;">
+      <div class="reassure-item" style="color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px;font-size:13px;">
+        <span style="color:#7ECFAC;">✓</span> In-person · Charleston area
+      </div>
+      <div class="reassure-item" style="color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px;font-size:13px;">
+        <span style="color:#7ECFAC;">✓</span> 60 minutes · Complete results
+      </div>
+      <div class="reassure-item" style="color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px;font-size:13px;">
+        <span style="color:#7ECFAC;">✓</span> 4–6 spots per month
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Smash Factor Golf Performance</div>
+    <div class="footer-sub">
+      TPI Fitness Level 2 Certified · Charleston, SC · Body-Swing Connection™ Framework<br>
+      <span style="margin-top:8px;display:block;">© 2025 Smash Factor Golf Performance · All rights reserved</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const navH = document.querySelector('nav').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH - 20;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// Nav shadow on scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 40 ? '0 4px 24px rgba(0,0,0,0.3)' : 'none';
+});
+
+// Subtle entrance animation for sections
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll(
+    '.problem-card, .what-item, .value-item, .step, .timeline-item, .testimonial-card, .ch-stat'
+  ).forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+}
+</script>
+
+</body>
+</html>
