@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smash Factor Golf — Swing & Body Assessment Intake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ─── TOKENS ─────────────────────────────────── */
+:root {
+  --teal:       #01696F;
+  --teal-dark:  #014F54;
+  --teal-deep:  #012E31;
+  --gold:       #C9A84C;
+  --gold-light: #F5EDCF;
+  --gold-dark:  #8B6914;
+  --cream:      #FAF7F2;
+  --warm:       #F2EDE6;
+  --ink:        #16140F;
+  --ink-mid:    #4A4640;
+  --ink-light:  #8C8880;
+  --border:     #E2DACF;
+  --green:      #2D6A4F;
+  --red:        #8B1A1A;
+  --white:      #fff;
+
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--teal-deep);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── BACKGROUND TEXTURE ─────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 80%, rgba(1,105,111,0.15) 0%, transparent 60%),
+    repeating-linear-gradient(-45deg, transparent, transparent 80px, rgba(255,255,255,0.008) 80px, rgba(255,255,255,0.008) 160px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── LAYOUT ─────────────────────────────────── */
+.page-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px 80px;
+}
+
+/* ─── HEADER BAR ─────────────────────────────── */
+.top-bar {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.logo-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.logo-text span { color: rgba(255,255,255,0.35); }
+.secure-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.secure-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.7;
+}
+
+/* ─── CARD ───────────────────────────────────── */
+.card {
+  width: 100%;
+  max-width: 720px;
+  background: var(--cream);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* ─── CARD HEADER ────────────────────────────── */
+.card-header {
+  background: linear-gradient(140deg, var(--teal-dark) 0%, var(--teal) 100%);
+  padding: 36px 48px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.card-header::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+}
+.card-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+.card-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.card-header h1 em { color: var(--gold); font-style: italic; }
+.card-header p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  line-height: 1.55;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── PROGRESS ───────────────────────────────── */
+.progress-bar-wrap {
+  background: var(--teal-dark);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.5s var(--ease-out);
+  width: 0%;
+}
+.progress-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+}
+
+/* ─── STEPS DOTS ─────────────────────────────── */
+.steps-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 48px 20px;
+  background: var(--teal-dark);
+}
+.step-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: all 0.3s;
+  cursor: default;
+}
+.step-dot.active { background: var(--gold); transform: scale(1.25); }
+.step-dot.done   { background: var(--green); }
+.step-dot-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+  margin-left: 4px;
+}
+
+/* ─── FORM BODY ──────────────────────────────── */
+.form-body { padding: 40px 48px 36px; }
+
+/* ─── SECTION ────────────────────────────────── */
+.form-section { display: none; animation: fadeSlide 0.4s var(--ease-out); }
+.form-section.active { display: block; }
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.section-intro {
+  margin-bottom: 28px;
+}
+.section-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 1px;
+  background: var(--teal);
+  opacity: 0.5;
+}
+.section-intro h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.section-intro p {
+  font-size: 13px;
+  color: var(--ink-light);
+  line-height: 1.55;
+}
+
+/* ─── FIELD GROUP ────────────────────────────── */
+.field-group { margin-bottom: 22px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  margin-bottom: 7px;
+  letter-spacing: 0.01em;
+}
+label .req { color: var(--gold-dark); margin-left: 2px; }
+label .hint {
+  font-weight: 400;
+  color: var(--ink-light);
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* ─── INPUTS ─────────────────────────────────── */
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=number],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(1,105,111,0.1);
+}
+input.error, select.error, textarea.error {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(139,26,26,0.08);
+}
+textarea { resize: vertical; min-height: 100px; line-height: 1.55; }
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C8880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+/* ─── RADIO / CHECKBOX CARDS ─────────────────── */
+.option-grid {
+  display: grid;
+  gap: 8px;
+}
+.option-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.option-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.option-card {
+  position: relative;
+  cursor: pointer;
+}
+.option-card input {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+.option-face {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 16px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.18s;
+  user-select: none;
+}
+.option-card input:checked + .option-face {
+  border-color: var(--teal);
+  background: #EFF8F8;
+  box-shadow: 0 0 0 3px rgba(1,105,111,0.08);
+}
+.option-card:hover .option-face {
+  border-color: rgba(1,105,111,0.4);
+}
+.option-indicator {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: all 0.18s;
+  display: flex; align-items: center; justify-content: center;
+}
+.option-card input[type=checkbox] ~ .option-face .option-indicator {
+  border-radius: 4px;
+}
+.option-card input:checked + .option-face .option-indicator {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.option-card input:checked + .option-face .option-indicator::after {
+  content: '';
+  display: block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+.option-card input[type=checkbox]:checked + .option-face .option-indicator::after {
+  content: '✓';
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  width: auto; height: auto;
+}
+.option-text { flex: 1; }
+.option-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  display: block;
+  line-height: 1.35;
+}
+.option-sub {
+  font-size: 12px;
+  color: var(--ink-light);
+  display: block;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* ─── RANGE SLIDER ───────────────────────────── */
+.range-wrap { padding: 4px 0; }
+input[type=range] {
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+input[type=range]:focus { box-shadow: none; }
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-light);
+  margin-top: 8px;
+}
+.range-value {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+.range-value span {
+  font-size: 14px;
+  color: var(--ink-light);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+/* ─── SCALE ROW ──────────────────────────────── */
+.scale-row {
+  display: flex;
+  gap: 6px;
+}
+.scale-btn {
+  flex: 1;
+  padding: 10px 4px;
+  text-align: center;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-mid);
+  transition: all 0.18s;
+  user-select: none;
+}
+.scale-btn:hover { border-color: var(--teal); color: var(--teal); }
+.scale-btn.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--ink-light);
+  margin-top: 6px;
+}
+
+/* ─── DIVIDER ────────────────────────────────── */
+.field-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 28px 0;
+}
+
+/* ─── ERROR MSG ──────────────────────────────── */
+.error-msg {
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 5px;
+  display: none;
+}
+.error-msg.visible { display: block; }
+
+/* ─── FORM FOOTER ────────────────────────────── */
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px 32px;
+  border-top: 1px solid var(--border);
+  gap: 12px;
+}
+.btn-back {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-light);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-back:hover { border-color: var(--ink-mid); color: var(--ink); }
+.btn-back:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.btn-next {
+  padding: 14px 36px;
+  background: var(--teal);
+  border: none;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+.btn-next:hover {
+  background: var(--teal-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(1,105,111,0.3);
+}
+.btn-next.gold-btn {
+  background: var(--gold);
+  color: var(--ink);
+}
+.btn-next.gold-btn:hover {
+  background: #D4B55A;
+  box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+}
+.btn-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn-arrow { font-size: 16px; transition: transform 0.2s; }
+.btn-next:hover .btn-arrow { transform: translateX(3px); }
+
+.step-counter {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-light);
+  letter-spacing: 0.08em;
+}
+
+/* ─── CONFIRMATION SCREEN ────────────────────── */
+.confirm-screen {
+  display: none;
+  padding: 56px 48px;
+  text-align: center;
+  animation: fadeSlide 0.5s var(--ease-out);
+}
+.confirm-screen.active { display: block; }
+
+.confirm-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 32px rgba(45,106,79,0.3);
+}
+.confirm-screen h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.confirm-screen h2 em { color: var(--teal); font-style: italic; }
+.confirm-screen p {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  max-width: 460px;
+  margin: 0 auto 32px;
+}
+.confirm-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 28px 0;
+}
+.confirm-next-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 12px;
+}
+.btn-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 18px 48px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s;
+  border: none;
+  cursor: pointer;
+}
+.btn-book:hover {
+  background: #D4B55A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201,168,76,0.4);
+}
+.book-arrow { font-size: 18px; transition: transform 0.2s; }
+.btn-book:hover .book-arrow { transform: translateX(4px); }
+.confirm-micro {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-top: 14px;
+  font-style: italic;
+}
+
+/* ─── FOOTER NOTE ────────────────────────────── */
+.card-foot {
+  padding: 16px 48px;
+  background: var(--warm);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.foot-note {
+  font-size: 12px;
+  color: var(--ink-light);
+  font-style: italic;
+  line-height: 1.5;
+}
+.foot-cert {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  white-space: nowrap;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 640px) {
+  .page-wrap { padding: 28px 12px 60px; }
+  .card-header { padding: 28px 24px 24px; }
+  .progress-bar-wrap { padding: 14px 24px; }
+  .steps-dots { padding: 0 24px 18px; }
+  .form-body { padding: 28px 24px 24px; }
+  .form-footer { padding: 16px 24px 24px; flex-wrap: wrap; }
+  .field-row { grid-template-columns: 1fr; }
+  .option-grid.cols-2 { grid-template-columns: 1fr; }
+  .option-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+  .card-foot { padding: 14px 24px; flex-direction: column; text-align: center; }
+  .confirm-screen { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="logo-text">Smash Factor <span>· Golf Performance</span></div>
+    <div class="secure-badge">
+      <div class="secure-dot"></div>
+      <span>Secure · Confidential</span>
+    </div>
+  </div>
+
+  <!-- MAIN CARD -->
+  <div class="card">
+
+    <!-- CARD HEADER -->
+    <div class="card-header">
+      <div class="card-eyebrow">Free Swing & Body Assessment — Pre-Session Intake</div>
+      <h1>Tell us about your game<br><em>before we meet.</em></h1>
+      <p>Takes 3–4 minutes. Your answers let us walk in already knowing your history, goals, and challenges — so we spend the session doing the work, not covering basics.</p>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-bar-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label" id="progressLabel">Section 1 of 5</div>
+    </div>
+
+    <!-- STEP DOTS -->
+    <div class="steps-dots">
+      <div class="step-dot active" id="dot-0"></div>
+      <div class="step-dot" id="dot-1"></div>
+      <div class="step-dot" id="dot-2"></div>
+      <div class="step-dot" id="dot-3"></div>
+      <div class="step-dot" id="dot-4"></div>
+      <span class="step-dot-label" id="dotLabel">About You</span>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         SECTION 0: ABOUT YOU
+    ════════════════════════════════════════ -->
+    <div class="form-body">
+    <div class="form-section active" id="section-0">
+      <div class="section-intro">
+        <div class="section-eyebrow">Section 1 of 5</div>
+        <h2>About You</h2>
+        <p>Basic info so we can personalize your session and follow up properly.</p>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="firstName">First Name <span class="req">*</span></label>
+          <input type="text" id="firstName" name="firstName" placeholder="John" autocomplete="given-name">
+          <div class="error-msg" id="err-firstName">Please enter your first name.</div>
+        </div>
+        <div class="field-group">
+          <label for="lastName">Last Name <span class="req">*</span></label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith" autocomplete="family-name">
+          <div class="error-msg" id="err-lastName">Please enter your last name.</div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="john@email.com" autocomplete="email">
+          <div class="error-msg" id="err-email">Please enter a valid email.</div>
+        </div>
+        <div class="field-group">
+          <label for="phone">Phone Number <span class="hint">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(843) 555-0100" autocomplete="tel">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="age">Age Range <span class="req">*</span></label>
+          <select id="age" name="age">
+            <option value="">Select range...</option>
+            <option>Under 30</option>
+            <option>30–39</option>
+            <option>40–49</option>
+            <option>50–59</option>
+            <option>60–69</option>
+            <option>70+</option>
+          </select>
+          <div class="error-msg" id="err-age">Please select your age range.</div>
+        </div>
+        <div class="field-group">
+          <label for="location">Neighborhood / Area <span class="hint">(optional)</span></label>
+          <input type="text" id="location" name="location" placeholder="e.g. Mt. Pleasant, Daniel Island…">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label>How did you hear about Smash Factor? <span class="req">*</span></label>
+        <div class="option-grid cols-2">
+          <label class="option-card">
+            <input type="radio" name="referral" value="Google Search">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Google Search</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="referral" value="Instagram / Social Media">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Instagram / Social Media</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="referral" value="Friend or Playing Partner">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Friend or Playing Partner</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="referral" value="My Golf Pro / Instructor">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">My Golf Pro / Instructor</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="referral" value="At the Course / Club">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">At the Course / Club</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="referral" value="Other">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Other</span></div></div>
+          </label>
+        </div>
+        <div class="error-msg" id="err-referral">Please select an option.</div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         SECTION 1: YOUR GOLF PROFILE
+    ════════════════════════════════════════ -->
+    <div class="form-section" id="section-1">
+      <div class="section-intro">
+        <div class="section-eyebrow">Section 2 of 5</div>
+        <h2>Your Golf Profile</h2>
+        <p>Help us understand where your game is right now — no judgment, just context.</p>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="handicap">Current Handicap Index <span class="req">*</span></label>
+          <select id="handicap" name="handicap">
+            <option value="">Select your handicap...</option>
+            <option>Scratch (0)</option>
+            <option>1–5</option>
+            <option>6–10</option>
+            <option>11–15</option>
+            <option>16–20</option>
+            <option>21–25</option>
+            <option>26–30+</option>
+            <option>No official handicap</option>
+          </select>
+          <div class="error-msg" id="err-handicap">Please select your handicap.</div>
+        </div>
+        <div class="field-group">
+          <label for="rounds">Rounds Played Per Year <span class="req">*</span></label>
+          <select id="rounds" name="rounds">
+            <option value="">Select...</option>
+            <option>1–10 rounds</option>
+            <option>11–25 rounds</option>
+            <option>26–50 rounds</option>
+            <option>51–75 rounds</option>
+            <option>76–100 rounds</option>
+            <option>100+ rounds</option>
+          </select>
+          <div class="error-msg" id="err-rounds">Please select rounds per year.</div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="homeCourse">Home Course / Club <span class="hint">(optional)</span></label>
+        <input type="text" id="homeCourse" name="homeCourse" placeholder="e.g. Stono Ferry, Snee Farm, Country Club of Charleston…">
+      </div>
+
+      <div class="field-group">
+        <label>How long have you been playing golf? <span class="req">*</span></label>
+        <div class="option-grid cols-3">
+          <label class="option-card">
+            <input type="radio" name="yearsPlaying" value="Less than 2 years">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Under 2 years</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="yearsPlaying" value="2–5 years">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">2–5 years</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="yearsPlaying" value="6–10 years">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">6–10 years</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="yearsPlaying" value="11–20 years">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">11–20 years</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="yearsPlaying" value="Over 20 years">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">20+ years</span></div></div>
+          </label>
+        </div>
+        <div class="error-msg" id="err-yearsPlaying">Please select an option.</div>
+      </div>
+
+      <div class="field-group">
+        <label>Estimated average driver distance <span class="req">*</span></label>
+        <div class="range-wrap">
+          <div class="range-value"><span id="distVal">220</span><span> yards</span></div>
+          <input type="range" id="driverDist" name="driverDist" min="150" max="350" step="5" value="220"
+            oninput="document.getElementById('distVal').textContent=this.value">
+          <div class="range-labels"><span>150 yds</span><span>200</span><span>250</span><span>300</span><span>350 yds</span></div>
+        </div>
+      </div>
+
+      <div class="field-divider"></div>
+
+      <div class="field-group">
+        <label>Have you previously worked with a swing instructor or golf coach? <span class="req">*</span></label>
+        <div class="option-grid cols-3">
+          <label class="option-card">
+            <input type="radio" name="prevCoaching" value="Yes — currently working with one">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Yes — currently</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="prevCoaching" value="Yes — in the past">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Yes — in the past</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="prevCoaching" value="No — never had lessons">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">No lessons yet</span></div></div>
+          </label>
+        </div>
+        <div class="error-msg" id="err-prevCoaching">Please select an option.</div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         SECTION 2: PERFORMANCE & SWING
+    ════════════════════════════════════════ -->
+    <div class="form-section" id="section-2">
+      <div class="section-intro">
+        <div class="section-eyebrow">Section 3 of 5</div>
+        <h2>Performance & Swing</h2>
+        <p>This is where we start identifying your physical-swing connection before we even meet.</p>
+      </div>
+
+      <div class="field-group">
+        <label>Which swing characteristics have been identified in your game? <span class="hint">Select all that apply</span></label>
+        <div class="option-grid cols-2">
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Early Extension (hips thrust toward ball)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Early Extension</span><span class="option-sub">Hips thrust toward ball on downswing</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Loss of Posture (standing up / lunging)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Loss of Posture</span><span class="option-sub">Standing up or lunging during swing</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Over-the-Top (out-to-in path)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Over-the-Top</span><span class="option-sub">Out-to-in path, pulls and slices</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Sway or Slide (lateral lower body)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Sway / Slide</span><span class="option-sub">Excessive lateral lower body movement</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Casting / Scooping (early release)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Casting / Scooping</span><span class="option-sub">Early wrist release, weak impact</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Chicken Wing (lead elbow breakdown)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Chicken Winging</span><span class="option-sub">Lead elbow bends through impact</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Flat Shoulder Plane">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Flat Shoulder Plane</span><span class="option-sub">Shoulders too horizontal on backswing</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="Reverse Spine Angle">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Reverse Spine Angle</span><span class="option-sub">Upper body leans toward target at top</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="S-Posture (excessive low back arch)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">S-Posture</span><span class="option-sub">Excessive anterior pelvic tilt at address</span></div></div>
+          </label>
+          <label class="option-card">
+            <input type="checkbox" name="swingFaults" value="C-Posture (rounded upper back)">
+            <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">C-Posture</span><span class="option-sub">Rounded upper back / hunched at address</span></div></div>
+          </label>
+        </div>
+        <label class="option-card" style="margin-top:8px;">
+          <input type="checkbox" name="swingFaults" value="Not sure / haven't been told">
+          <div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Not sure — I haven't been formally told</span></div></div>
+        </label>
+      </div>
+
+      <div class="field-divider"></div>
+
+      <div class="field-group">
+        <label>Rate your current ball-striking consistency <span class="req">*</span></label>
+        <div class="scale-row" id="strikeScale">
+          <div class="scale-btn" data-val="1" onclick="setScale('strike',1,this)">1</div>
+          <div class="scale-btn" data-val="2" onclick="setScale('strike',2,this)">2</div>
+          <div class="scale-btn" data-val="3" onclick="setScale('strike',3,this)">3</div>
+          <div class="scale-btn" data-val="4" onclick="setScale('strike',4,this)">4</div>
+          <div class="scale-btn" data-val="5" onclick="setScale('strike',5,this)">5</div>
+          <div class="scale-btn" data-val="6" onclick="setScale('strike',6,this)">6</div>
+          <div class="scale-btn" data-val="7" onclick="setScale('strike',7,this)">7</div>
+          <div class="scale-btn" data-val="8" onclick="setScale('strike',8,this)">8</div>
+          <div class="scale-btn" data-val="9" onclick="setScale('strike',9,this)">9</div>
+          <div class="scale-btn" data-val="10" onclick="setScale('strike',10,this)">10</div>
+        </div>
+        <div class="scale-labels"><span>Very inconsistent</span><span>Tour-level consistent</span></div>
+        <input type="hidden" id="strikeVal" name="strikeConsistency">
+        <div class="error-msg" id="err-strikeConsistency">Please rate your ball-striking.</div>
+      </div>
+
+      <div class="field-group">
+        <label>What's your #1 miss with the driver? <span class="req">*</span></label>
+        <div class="option-grid cols-2">
+          <label class="option-card"><input type="radio" name="driverMiss" value="Slice (left-to-right for RH)"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Slice</span><span class="option-sub">Left-to-right curve (RH golfer)</span></div></div></label>
+          <label class="option-card"><input type="radio" name="driverMiss" value="Hook (right-to-left for RH)"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Hook</span><span class="option-sub">Right-to-left curve (RH golfer)</span></div></div></label>
+          <label class="option-card"><input type="radio" name="driverMiss" value="Push (straight right)"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Push</span><span class="option-sub">Straight to the right</span></div></div></label>
+          <label class="option-card"><input type="radio" name="driverMiss" value="Pull (straight left)"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Pull</span><span class="option-sub">Straight to the left</span></div></div></label>
+          <label class="option-card"><input type="radio" name="driverMiss" value="Thin / topped shots"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Thin / Topped</span></div></div></label>
+          <label class="option-card"><input type="radio" name="driverMiss" value="No consistent miss pattern"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">No consistent miss</span><span class="option-sub">Random misses, hard to predict</span></div></div></label>
+        </div>
+        <div class="error-msg" id="err-driverMiss">Please select your driver miss.</div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         SECTION 3: PHYSICAL & TRAINING
+    ════════════════════════════════════════ -->
+    <div class="form-section" id="section-3">
+      <div class="section-intro">
+        <div class="section-eyebrow">Section 4 of 5</div>
+        <h2>Physical Profile & Training</h2>
+        <p>This is exactly what the TPI screen will dig into — your answers help us prioritize which tests matter most for you.</p>
+      </div>
+
+      <div class="field-group">
+        <label>Do you currently have any pain, tightness, or injury that affects your golf game? <span class="req">*</span></label>
+        <div class="option-grid cols-3">
+          <label class="option-card"><input type="radio" name="painStatus" value="Yes — currently dealing with it"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Yes — active issue</span></div></div></label>
+          <label class="option-card"><input type="radio" name="painStatus" value="Occasionally — comes and goes"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Occasionally</span><span class="option-sub">Comes and goes</span></div></div></label>
+          <label class="option-card"><input type="radio" name="painStatus" value="No — feeling good physically"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">No issues</span><span class="option-sub">Feeling good</span></div></div></label>
+        </div>
+        <div class="error-msg" id="err-painStatus">Please select an option.</div>
+      </div>
+
+      <div class="field-group" id="painAreaWrap" style="display:none;">
+        <label for="painArea">Where is the pain or tightness located? <span class="hint">(be specific)</span></label>
+        <textarea id="painArea" name="painArea" placeholder="e.g. Lower back tightness after 9 holes, right shoulder soreness on follow-through…"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label>Which physical areas feel most restricted in your swing? <span class="hint">Select all that apply</span></label>
+        <div class="option-grid cols-2">
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Hip rotation (trail side)"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Hip rotation — trail side</span><span class="option-sub">Coil / backswing load</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Hip rotation (lead side)"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Hip rotation — lead side</span><span class="option-sub">Downswing / impact clearance</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Thoracic spine / shoulder turn"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">T-spine / shoulder turn</span><span class="option-sub">Backswing rotation depth</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Lower back / lumbar"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Lower back / lumbar</span><span class="option-sub">Tightness or discomfort</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Hamstrings / posterior chain"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Hamstrings / posterior chain</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Wrists / forearms"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Wrists / forearms</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Shoulders / overhead mobility"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Shoulders / overhead</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="physRestrictions" value="Ankles / balance"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Ankles / balance</span></div></div></label>
+        </div>
+        <label class="option-card" style="margin-top:8px;"><input type="checkbox" name="physRestrictions" value="Nothing feels restricted — I move well"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Nothing feels restricted — I move well</span></div></div></label>
+      </div>
+
+      <div class="field-divider"></div>
+
+      <div class="field-group">
+        <label>Current fitness & training activity <span class="req">*</span></label>
+        <div class="option-grid cols-2">
+          <label class="option-card"><input type="radio" name="fitnessLevel" value="Active — structured gym program 3+ days/week"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Active — structured training</span><span class="option-sub">Gym 3+ days/week with a plan</span></div></div></label>
+          <label class="option-card"><input type="radio" name="fitnessLevel" value="Moderately active — some gym work 1–2 days/week"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Moderately active</span><span class="option-sub">Some gym work 1–2 days/week</span></div></div></label>
+          <label class="option-card"><input type="radio" name="fitnessLevel" value="Light activity — walking, golf only"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Light activity</span><span class="option-sub">Walking, golf only</span></div></div></label>
+          <label class="option-card"><input type="radio" name="fitnessLevel" value="Minimal — not currently training"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Minimal / not training</span></div></div></label>
+        </div>
+        <div class="error-msg" id="err-fitnessLevel">Please select your activity level.</div>
+      </div>
+
+      <div class="field-group">
+        <label>Have you ever done any golf-specific fitness or TPI training? <span class="req">*</span></label>
+        <div class="option-grid cols-3">
+          <label class="option-card"><input type="radio" name="tpiPrior" value="Yes — TPI-based program"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Yes — TPI-based</span></div></div></label>
+          <label class="option-card"><input type="radio" name="tpiPrior" value="Some golf fitness — not TPI"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Some golf fitness</span><span class="option-sub">Not TPI-based</span></div></div></label>
+          <label class="option-card"><input type="radio" name="tpiPrior" value="No — this would be my first"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">First time</span></div></div></label>
+        </div>
+        <div class="error-msg" id="err-tpiPrior">Please select an option.</div>
+      </div>
+
+      <div class="field-group">
+        <label>How many days per week can you realistically commit to training? <span class="req">*</span></label>
+        <div class="scale-row" id="daysScale">
+          <div class="scale-btn" data-val="1" onclick="setScale('days',1,this)">1</div>
+          <div class="scale-btn" data-val="2" onclick="setScale('days',2,this)">2</div>
+          <div class="scale-btn" data-val="3" onclick="setScale('days',3,this)">3</div>
+          <div class="scale-btn" data-val="4" onclick="setScale('days',4,this)">4</div>
+          <div class="scale-btn" data-val="5" onclick="setScale('days',5,this)">5</div>
+          <div class="scale-btn" data-val="6" onclick="setScale('days',6,this)">6</div>
+          <div class="scale-btn" data-val="7" onclick="setScale('days',7,this)">7</div>
+        </div>
+        <div class="scale-labels"><span>1 day / week</span><span>Every day</span></div>
+        <input type="hidden" id="daysVal" name="trainingDays">
+        <div class="error-msg" id="err-trainingDays">Please select your availability.</div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         SECTION 4: GOALS & CONTEXT
+    ════════════════════════════════════════ -->
+    <div class="form-section" id="section-4">
+      <div class="section-intro">
+        <div class="section-eyebrow">Section 5 of 5</div>
+        <h2>Goals & Session Context</h2>
+        <p>Last section — what matters most to you, and what do you want to walk away with?</p>
+      </div>
+
+      <div class="field-group">
+        <label>What are your primary goals? <span class="hint">Select up to 3</span></label>
+        <div class="option-grid cols-2" id="goalsGrid">
+          <label class="option-card"><input type="checkbox" name="goals" value="Add distance — more yards off the tee"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Add distance</span><span class="option-sub">More yards off the tee</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="goals" value="Fix recurring swing faults"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Fix recurring swing faults</span><span class="option-sub">The same issues keep coming back</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="goals" value="Lower my handicap — score better"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Lower my handicap</span><span class="option-sub">Score better, more consistently</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="goals" value="Improve consistency under pressure"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Improve consistency</span><span class="option-sub">Especially under pressure / back 9</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="goals" value="Reduce back or body pain from golf"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Reduce pain / injury risk</span><span class="option-sub">Back, shoulder, or body pain from golf</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="goals" value="Understand my physical limitations"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Understand my limitations</span><span class="option-sub">Know what's holding me back physically</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="goals" value="Build a long-term golf fitness routine"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Build a long-term routine</span><span class="option-sub">Structured, sustainable golf fitness</span></div></div></label>
+          <label class="option-card"><input type="checkbox" name="goals" value="Compete — club championship / tournaments"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Compete</span><span class="option-sub">Club championship or tournaments</span></div></div></label>
+        </div>
+        <div class="error-msg" id="err-goals">Please select at least one goal.</div>
+      </div>
+
+      <div class="field-group">
+        <label>How urgent does improvement feel to you right now? <span class="req">*</span></label>
+        <div class="option-grid cols-3">
+          <label class="option-card"><input type="radio" name="urgency" value="High — I want to start immediately"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">High urgency</span><span class="option-sub">Ready to start now</span></div></div></label>
+          <label class="option-card"><input type="radio" name="urgency" value="Medium — within the next few weeks"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Medium urgency</span><span class="option-sub">Next few weeks</span></div></div></label>
+          <label class="option-card"><input type="radio" name="urgency" value="Exploring — just seeing what's available"><div class="option-face"><div class="option-indicator"></div><div class="option-text"><span class="option-label">Just exploring</span><span class="option-sub">No rush right now</span></div></div></label>
+        </div>
+        <div class="error-msg" id="err-urgency">Please select an option.</div>
+      </div>
+
+      <div class="field-group">
+        <label>Do you have a specific event, round, or season you're preparing for? <span class="hint">(optional)</span></label>
+        <input type="text" id="targetEvent" name="targetEvent" placeholder="e.g. Club championship in April, member-guest in June, trip to Kiawah in October…">
+      </div>
+
+      <div class="field-divider"></div>
+
+      <div class="field-group">
+        <label for="biggestChallenge">In your own words — what's the single biggest challenge in your game right now? <span class="req">*</span></label>
+        <textarea id="biggestChallenge" name="biggestChallenge" placeholder="Be as specific as possible. This is what we'll make sure to address in your session…" style="min-height:120px;"></textarea>
+        <div class="error-msg" id="err-biggestChallenge">Please describe your biggest challenge.</div>
+      </div>
+
+      <div class="field-group">
+        <label for="anythingElse">Anything else you want us to know before your session? <span class="hint">(optional)</span></label>
+        <textarea id="anythingElse" name="anythingElse" placeholder="Previous injuries, scheduling preferences, specific equipment you use, questions about the program…" style="min-height:80px;"></textarea>
+      </div>
+    </div>
+
+    </div><!-- /form-body -->
+
+
+    <!-- FORM FOOTER NAV -->
+    <div class="form-footer" id="formFooter">
+      <button class="btn-back" id="btnBack" onclick="prevSection()" disabled>← Back</button>
+      <div class="step-counter" id="stepCounter">1 / 5</div>
+      <button class="btn-next" id="btnNext" onclick="nextSection()">
+        Continue <span class="btn-arrow">→</span>
+      </button>
+    </div>
+
+
+    <!-- ════ CONFIRMATION SCREEN ════ -->
+    <div class="confirm-screen" id="confirmScreen">
+      <div class="confirm-icon">✓</div>
+      <h2>You're all set,<br><em>let's find those yards.</em></h2>
+      <p>Your intake form has been received. We'll review your answers before your session so we can hit the ground running. One last step — pick your time slot below.</p>
+
+      <div class="confirm-divider"></div>
+
+      <div class="confirm-next-label">Step 2 of 2 — Choose Your Session Time</div>
+      <a href="YOUR_SQUARE_APPOINTMENTS_BOOKING_URL_HERE" class="btn-book" id="bookingBtn" target="_blank">
+        Book My Session Time <span class="book-arrow">→</span>
+      </a>
+      <p class="confirm-micro">Opens in a new tab · Powered by Square Appointments · No payment required</p>
+    </div>
+
+
+    <!-- CARD FOOT -->
+    <div class="card-foot">
+      <p class="foot-note">Your answers are used only to prepare for your assessment session and will never be shared.</p>
+      <div class="foot-cert">TPI Fitness Level 2 · Charleston, SC</div>
+    </div>
+
+  </div><!-- /card -->
+
+</div><!-- /page-wrap -->
+
+
+<script>
+// ─── STATE ────────────────────────────────────
+let currentSection = 0;
+const totalSections = 5;
+const scaleValues = { strike: null, days: null };
+
+const sectionLabels = [
+  'About You',
+  'Golf Profile',
+  'Performance',
+  'Physical',
+  'Goals'
+];
+
+// ─── SECTION NAV ──────────────────────────────
+function updateUI() {
+  // Progress bar
+  const pct = (currentSection / totalSections) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent =
+    `Section ${currentSection + 1} of ${totalSections}`;
+  document.getElementById('stepCounter').textContent =
+    `${currentSection + 1} / ${totalSections}`;
+
+  // Dots
+  for (let i = 0; i < totalSections; i++) {
+    const dot = document.getElementById('dot-' + i);
+    dot.className = 'step-dot';
+    if (i < currentSection)  dot.classList.add('done');
+    if (i === currentSection) dot.classList.add('active');
+  }
+  document.getElementById('dotLabel').textContent = sectionLabels[currentSection];
+
+  // Back button
+  document.getElementById('btnBack').disabled = currentSection === 0;
+
+  // Next button text
+  const btn = document.getElementById('btnNext');
+  if (currentSection === totalSections - 1) {
+    btn.innerHTML = 'Submit & Book My Session <span class="btn-arrow">→</span>';
+    btn.classList.add('gold-btn');
+  } else {
+    btn.innerHTML = 'Continue <span class="btn-arrow">→</span>';
+    btn.classList.remove('gold-btn');
+  }
+}
+
+function showSection(idx) {
+  document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-' + idx).classList.add('active');
+  currentSection = idx;
+  updateUI();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function nextSection() {
+  if (!validateSection(currentSection)) return;
+  if (currentSection < totalSections - 1) {
+    showSection(currentSection + 1);
+  } else {
+    submitForm();
+  }
+}
+
+function prevSection() {
+  if (currentSection > 0) showSection(currentSection - 1);
+}
+
+// ─── SCALE BUTTONS ────────────────────────────
+function setScale(type, val, el) {
+  const containerId = type === 'strike' ? 'strikeScale' : 'daysScale';
+  const hiddenId    = type === 'strike' ? 'strikeVal'   : 'daysVal';
+  document.querySelectorAll('#' + containerId + ' .scale-btn')
+    .forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(hiddenId).value = val;
+  scaleValues[type] = val;
+  // clear error
+  const errId = type === 'strike' ? 'err-strikeConsistency' : 'err-trainingDays';
+  hideError(errId);
+}
+
+// ─── PAIN AREA TOGGLE ─────────────────────────
+document.querySelectorAll('input[name="painStatus"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const wrap = document.getElementById('painAreaWrap');
+    wrap.style.display = r.value.startsWith('Yes') || r.value.startsWith('Occ')
+      ? 'block' : 'none';
+  });
+});
+
+// ─── GOAL LIMIT (max 3) ───────────────────────
+document.getElementById('goalsGrid').addEventListener('change', e => {
+  if (e.target.type !== 'checkbox') return;
+  const checked = document.querySelectorAll('#goalsGrid input:checked');
+  if (checked.length > 3) { e.target.checked = false; }
+});
+
+// ─── VALIDATION ───────────────────────────────
+function showError(id) {
+  const el = document.getElementById(id);
+  if (el) { el.classList.add('visible'); }
+}
+function hideError(id) {
+  const el = document.getElementById(id);
+  if (el) { el.classList.remove('visible'); }
+}
+function markFieldError(id, hasError) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('error', hasError);
+}
+
+function validateSection(idx) {
+  let valid = true;
+
+  if (idx === 0) {
+    const fn = document.getElementById('firstName').value.trim();
+    const ln = document.getElementById('lastName').value.trim();
+    const em = document.getElementById('email').value.trim();
+    const ag = document.getElementById('age').value;
+    const rf = document.querySelector('input[name="referral"]:checked');
+
+    if (!fn) { showError('err-firstName'); markFieldError('firstName', true); valid = false; }
+    else     { hideError('err-firstName'); markFieldError('firstName', false); }
+
+    if (!ln) { showError('err-lastName'); markFieldError('lastName', true); valid = false; }
+    else     { hideError('err-lastName'); markFieldError('lastName', false); }
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+    if (!emailOk) { showError('err-email'); markFieldError('email', true); valid = false; }
+    else          { hideError('err-email'); markFieldError('email', false); }
+
+    if (!ag) { showError('err-age'); markFieldError('age', true); valid = false; }
+    else     { hideError('err-age'); markFieldError('age', false); }
+
+    if (!rf) { showError('err-referral'); valid = false; }
+    else     { hideError('err-referral'); }
+  }
+
+  if (idx === 1) {
+    const hc = document.getElementById('handicap').value;
+    const rr = document.getElementById('rounds').value;
+    const yp = document.querySelector('input[name="yearsPlaying"]:checked');
+    const pc = document.querySelector('input[name="prevCoaching"]:checked');
+
+    if (!hc) { showError('err-handicap'); markFieldError('handicap', true); valid = false; }
+    else     { hideError('err-handicap'); markFieldError('handicap', false); }
+
+    if (!rr) { showError('err-rounds'); markFieldError('rounds', true); valid = false; }
+    else     { hideError('err-rounds'); markFieldError('rounds', false); }
+
+    if (!yp) { showError('err-yearsPlaying'); valid = false; }
+    else     { hideError('err-yearsPlaying'); }
+
+    if (!pc) { showError('err-prevCoaching'); valid = false; }
+    else     { hideError('err-prevCoaching'); }
+  }
+
+  if (idx === 2) {
+    const sv = document.getElementById('strikeVal').value;
+    const dm = document.querySelector('input[name="driverMiss"]:checked');
+
+    if (!sv) { showError('err-strikeConsistency'); valid = false; }
+    else     { hideError('err-strikeConsistency'); }
+
+    if (!dm) { showError('err-driverMiss'); valid = false; }
+    else     { hideError('err-driverMiss'); }
+  }
+
+  if (idx === 3) {
+    const ps = document.querySelector('input[name="painStatus"]:checked');
+    const fl = document.querySelector('input[name="fitnessLevel"]:checked');
+    const tp = document.querySelector('input[name="tpiPrior"]:checked');
+    const dv = document.getElementById('daysVal').value;
+
+    if (!ps) { showError('err-painStatus'); valid = false; }
+    else     { hideError('err-painStatus'); }
+
+    if (!fl) { showError('err-fitnessLevel'); valid = false; }
+    else     { hideError('err-fitnessLevel'); }
+
+    if (!tp) { showError('err-tpiPrior'); valid = false; }
+    else     { hideError('err-tpiPrior'); }
+
+    if (!dv) { showError('err-trainingDays'); valid = false; }
+    else     { hideError('err-trainingDays'); }
+  }
+
+  if (idx === 4) {
+    const goals = document.querySelectorAll('input[name="goals"]:checked');
+    const urg   = document.querySelector('input[name="urgency"]:checked');
+    const bc    = document.getElementById('biggestChallenge').value.trim();
+
+    if (goals.length === 0) { showError('err-goals'); valid = false; }
+    else                    { hideError('err-goals'); }
+
+    if (!urg) { showError('err-urgency'); valid = false; }
+    else      { hideError('err-urgency'); }
+
+    if (!bc) { showError('err-biggestChallenge'); markFieldError('biggestChallenge', true); valid = false; }
+    else     { hideError('err-biggestChallenge'); markFieldError('biggestChallenge', false); }
+  }
+
+  if (!valid) {
+    // scroll to first error
+    const firstErr = document.querySelector('.error-msg.visible, .error');
+    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  return valid;
+}
+
+// ─── COLLECT ALL FORM DATA ────────────────────
+function collectFormData() {
+  const get = id => {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  };
+  const getRadio = name => {
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : '';
+  };
+  const getCheckboxes = name => {
+    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+      .map(el => el.value).join(', ');
+  };
+
+  return {
+    // About You
+    firstName:         get('firstName'),
+    lastName:          get('lastName'),
+    email:             get('email'),
+    phone:             get('phone'),
+    age:               get('age'),
+    location:          get('location'),
+    referral:          getRadio('referral'),
+    // Golf Profile
+    handicap:          get('handicap'),
+    rounds:            get('rounds'),
+    homeCourse:        get('homeCourse'),
+    yearsPlaying:      getRadio('yearsPlaying'),
+    driverDist:        get('driverDist') + ' yards',
+    prevCoaching:      getRadio('prevCoaching'),
+    // Performance
+    swingFaults:       getCheckboxes('swingFaults'),
+    strikeConsistency: get('strikeVal') + ' / 10',
+    driverMiss:        getRadio('driverMiss'),
+    // Physical
+    painStatus:        getRadio('painStatus'),
+    painArea:          get('painArea'),
+    physRestrictions:  getCheckboxes('physRestrictions'),
+    fitnessLevel:      getRadio('fitnessLevel'),
+    tpiPrior:          getRadio('tpiPrior'),
+    trainingDays:      get('daysVal') + ' days/week',
+    // Goals
+    goals:             getCheckboxes('goals'),
+    urgency:           getRadio('urgency'),
+    targetEvent:       get('targetEvent'),
+    biggestChallenge:  get('biggestChallenge'),
+    anythingElse:      get('anythingElse'),
+    // Meta
+    submittedAt:       new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
+  };
+}
+
+// ─── BUILD EMAIL BODY ─────────────────────────
+function buildEmailBody(data) {
+  return `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SMASH FACTOR GOLF — NEW ASSESSMENT INTAKE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Submitted: ${data.submittedAt}
+
+📋 ABOUT THE GOLFER
+Name:        ${data.firstName} ${data.lastName}
+Email:       ${data.email}
+Phone:       ${data.phone || '—'}
+Age Range:   ${data.age}
+Area:        ${data.location || '—'}
+Referred by: ${data.referral}
+
+⛳ GOLF PROFILE
+Handicap:        ${data.handicap}
+Rounds/Year:     ${data.rounds}
+Home Course:     ${data.homeCourse || '—'}
+Years Playing:   ${data.yearsPlaying}
+Driver Distance: ${data.driverDist}
+Prior Coaching:  ${data.prevCoaching}
+
+🏌️ SWING & PERFORMANCE
+Swing Faults:          ${data.swingFaults || 'None selected'}
+Ball-Strike Rating:    ${data.strikeConsistency}
+Primary Driver Miss:   ${data.driverMiss}
+
+💪 PHYSICAL PROFILE
+Pain / Injury Status:  ${data.painStatus}
+Pain Location:         ${data.painArea || '—'}
+Physical Restrictions: ${data.physRestrictions || 'None selected'}
+Fitness Level:         ${data.fitnessLevel}
+Prior TPI Training:    ${data.tpiPrior}
+Training Availability: ${data.trainingDays}
+
+🎯 GOALS & CONTEXT
+Primary Goals:    ${data.goals || 'None selected'}
+Urgency Level:    ${data.urgency}
+Target Event:     ${data.targetEvent || '—'}
+
+Biggest Challenge:
+"${data.biggestChallenge}"
+
+Additional Notes:
+${data.anythingElse || '—'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Reply-to: ${data.email}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  `.trim();
+}
+
+// ─── SUBMIT ───────────────────────────────────
+function submitForm() {
+  const data = collectFormData();
+  const body = buildEmailBody(data);
+
+  // ── METHOD: mailto (works without a backend)
+  // Replace YOUR_EMAIL with your actual email address
+  const subject = encodeURIComponent(
+    `New Assessment Intake — ${data.firstName} ${data.lastName} · Handicap: ${data.handicap}`
+  );
+  const bodyEncoded = encodeURIComponent(body);
+  const mailtoLink = `mailto:YOUR_EMAIL_ADDRESS_HERE?subject=${subject}&body=${bodyEncoded}`;
+
+  // Show confirmation screen
+  document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('formFooter').style.display = 'none';
+  document.getElementById('confirmScreen').classList.add('active');
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('progressLabel').textContent = 'Complete';
+
+  // Mark all dots done
+  for (let i = 0; i < totalSections; i++) {
+    document.getElementById('dot-' + i).className = 'step-dot done';
+  }
+  document.getElementById('dotLabel').textContent = 'Complete';
+
+  // Open email client with pre-filled intake data
+  window.location.href = mailtoLink;
+
+  // Scroll up
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── INIT ─────────────────────────────────────
+updateUI();
+</script>
+
+</body>
+</html>
