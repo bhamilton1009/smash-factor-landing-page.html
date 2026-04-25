@@ -1520,7 +1520,7 @@ function submitForm() {
     `New Assessment Intake — ${data.firstName} ${data.lastName} · Handicap: ${data.handicap}`
   );
   const bodyEncoded = encodeURIComponent(body);
-  const mailtoLink = `mailto:YOUR_EMAIL_ADDRESS_HERE?subject=${subject}&body=${bodyEncoded}`;
+  const mailtoLink = `mailto:brandon@shapingconcepts.com?subject=${subject}&body=${bodyEncoded}`;
 
   // Show confirmation screen
   document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
